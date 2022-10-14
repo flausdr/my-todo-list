@@ -1,0 +1,80 @@
+@import '../../style/variable.scss';
+
+.header{
+    display: block;
+    width: 92%;
+    height: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border: 1px solid $light-blue;
+    border-radius: 24px;
+    z-index: 1;
+    &__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        font-weight: 300;
+        color: $item-blue;
+        flex-basis: 15%;
+        padding: 15px 0 5px;
+    }
+    &__title{
+        color: $white;
+        display: flex;
+        height: 50px;
+        flex-basis: 80%;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        font-weight: 400;
+        color: $item-blue;
+    }
+    &__client{
+        display: block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $item-blue;
+        border-radius: 50%;
+        margin-top: 25px;
+        overflow: hidden;
+        img{
+            width: 50px;
+        }
+    }
+}
+
+.header-top{
+    display: flex;
+    height: 75px;
+}
+
+.header-navigation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 5%;
+    height: 35%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    margin-left: 20px;
+    a{
+        text-decoration: none;
+        svg{
+            width: 35px;
+            height: 35px;
+            transition: 0.3s linear all;
+            fill: $item-blue;
+            &:hover{
+                fill: $black;
+                transition: 0.3s linear all;
+            }
+        }
+    }
+}

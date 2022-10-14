@@ -1,0 +1,15 @@
+@import '../../style/variable.scss';
+
+.desk{
+    display: flex;
+    flex-wrap: wrap;
+    width: 92%;
+    height: 87%;
+    background-color: rgba($gray, 0.3);
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 5px;
+    z-index: 2;
+    overflow-y: scroll;
+}

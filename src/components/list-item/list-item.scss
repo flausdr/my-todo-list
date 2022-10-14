@@ -1,0 +1,103 @@
+@import '../../style/variable.scss';
+
+.item{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $gray;
+    box-shadow: 0 3px 10px $gray;
+    border-radius: 5px;
+    background-color: $white;
+    position: relative;
+    overflow: auto;
+    resize: both;
+    appearance: none;
+    &__title{
+        display: block;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+        margin-top: 20px;
+        padding: 7px 10px;
+        border: 1px dashed $gray;
+        border-radius: 5px;
+        resize: none;
+        &:focus{
+            outline: none;
+            &::placeholder{
+                font-size: 0;
+            }
+        }
+    }
+    &__list{
+        display: block;
+        padding: 5px 0;
+        li{
+            display: block;
+            list-style: none;
+            border: 1px solid rgba($gray, 0.5);
+            border-radius: 10px;
+            padding: 5px;
+        }
+        li > textarea{
+            display: flex;
+            width: 100%;
+            height: auto;
+            font-size: 18px;
+            border: none;
+            resize: none;
+            overflow: none;
+            &:focus{
+                outline: none;
+                &::placeholder{
+                    font-size: 0;
+                }
+            }
+        }
+    }
+}
+
+.plus{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 15px auto;
+    fill: $gray;
+    cursor: pointer;
+    transition: 0.3s linear all;
+    &:hover{
+        fill: $black;
+        transition: 0.3s linear all;
+    }
+}
+
+.close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.add-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 300px;
+    margin: 20px;
+    padding: 50px;
+}
+
+.add-new-item {
+    fill: $gray;
+    transition: 0.3s linear all;
+    width: 50px;
+    &:hover{
+        fill: $black;
+        transition: 0.3s linear all;
+    }
+}
