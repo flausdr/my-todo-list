@@ -3,8 +3,9 @@
 .item{
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 350px;
+    width: 270px;
+    height: auto;
+    max-height: 100%;
     margin: 20px;
     padding: 20px;
     border: 1px solid $gray;
@@ -12,13 +13,11 @@
     border-radius: 5px;
     background-color: $white;
     position: relative;
-    overflow: auto;
-    resize: both;
-    appearance: none;
     &__title{
         display: block;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 24px;
+        font-family: $font-pop;
+        font-weight: 700;
+        font-size: 20px;
         margin-top: 20px;
         padding: 7px 10px;
         border: 1px dashed $gray;
@@ -42,7 +41,9 @@
             padding: 5px;
         }
         li > textarea{
+            font-family: $font-pop;
             display: flex;
+            white-space: normal;
             width: 100%;
             height: auto;
             font-size: 18px;
@@ -80,24 +81,5 @@
     width: 15px;
     height: 15px;
     cursor: pointer;
-}
-
-.add-item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 300px;
-    margin: 20px;
-    padding: 50px;
-}
-
-.add-new-item {
-    fill: $gray;
-    transition: 0.3s linear all;
-    width: 50px;
-    &:hover{
-        fill: $black;
-        transition: 0.3s linear all;
-    }
+    fill: rgba($black, 0.68);
 }

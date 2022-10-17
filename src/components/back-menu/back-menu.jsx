@@ -9,7 +9,7 @@ const BackMenu = () => {
         <div className='header'>
             <div className='header-top'>
                 <div className='header__logo'>
-                    Perfecto
+                    Flaus
                 </div>
                 <h1 className='header__title'>Todo List with Drag and Drop</h1>
                 <div className="header__client">
