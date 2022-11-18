@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import crudReducer from '../components/desk/crudSlice';
+import cardSlice from '../components/cardSlice/cardSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: crudReducer,
+    counter: cardSlice,
   },
 });
