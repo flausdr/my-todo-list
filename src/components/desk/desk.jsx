@@ -11,6 +11,7 @@ const Desk = () => {
 
     const obj = {
         id: nanoid(),
+        value: [nanoid()]
     }
 
     const arr = cards.map(item => {

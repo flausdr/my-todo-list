@@ -39,6 +39,15 @@
             border: 1px solid rgba($gray, 0.5);
             border-radius: 10px;
             padding: 5px;
+            margin-bottom: 10px;
+            position: relative;
+            &:hover{
+                .close-item{
+                    fill: rgba($black, 0.68);
+                    cursor: pointer;
+                    transition: 0.3s linear all;
+                }
+            }
         }
         li > textarea{
             font-family: $font-pop;
@@ -82,4 +91,14 @@
     height: 15px;
     cursor: pointer;
     fill: rgba($black, 0.68);
+}
+
+.close-item{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    fill: transparent;
+    transition: 0.3s linear all;
 }
