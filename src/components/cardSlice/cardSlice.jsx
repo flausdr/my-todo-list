@@ -1,37 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    array: [{id: 'first', value: ['random']}]
-}
+const cardsMap = new Map()
+
+cardsMap.set('first', [{ id: 'randomFirst', text: ''}])
+
+const initialState = [...cardsMap.entries()]
 
 export const crudSlice = createSlice({
     name: 'cards',
     initialState: initialState,
     reducers: {
         addCard: (state, { payload }) => {
-            return {
-                array: [...state.array, payload]
-            }
+            const newCardMap = new Map([...cardsMap.entries()])
+
+            newCardMap.set(payload.id, [{id: 'randomSecond', text: payload.obj.text}])
+            cardsMap.set(payload.id, [{id: 'randomSecond', text: payload.obj.text}])
+            return [...newCardMap.entries()]
         },
         removeCard: (state, { payload }) => {
-            return {
-                array: [...state.array.filter(item => item.id !== payload)]
-            }
+            const newCardMap = new Map([...cardsMap.entries()])
+
+            newCardMap.delete(payload)
+            cardsMap.delete(payload)
+            return [...newCardMap.entries()]
         },
         addItemsForCard: (state, { payload }) => {
-            return {
-                array: [...state.array.map(item => {
-                    if (item.id === payload.id) {
-                        item = {
-                            id: item.id,
-                            value: [...item.value, payload.value]
-                        }
-                        return item
-                    } else {
-                        return item
-                    }
-                })]
-            }
+            console.log(payload)
+            const newMap = cardsMap.get(payload.cardId),
+                valuesMap = [...newMap.values()]
+
+            console.log(valuesMap)
+            valuesMap.push({id: payload.id, text: ''})
+            console.log(valuesMap)
+
+            cardsMap.set(payload.cardId, valuesMap)
+            return [...cardsMap.entries()]
         }
     }
 })
