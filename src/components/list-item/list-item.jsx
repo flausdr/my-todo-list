@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { removeCard, addItemsForCard } from '../cardSlice/cardSlice';
+import { removeCard, addItemForCard } from '../cardSlice/cardSlice';
 import { nanoid } from '@reduxjs/toolkit';
 
 import Item from '../item/item';
@@ -18,11 +18,11 @@ const ListItem = ({ id }) => {
             <ul className='item__list'>
                 {
                     arrMap.map(item => {
-                        return <Item key={item.id} cardId={id} id={item.id} text={item.text}/>
+                        return <Item key={item.id} cardId={id} id={item.id} />
                     })
                 }
             </ul>
-            <span className='plus' onClick={() => dispatch(addItemsForCard({cardId: id, id: nanoid(), text: ''}))}>
+            <span className='plus' onClick={() => dispatch(addItemForCard({cardId: id, id: nanoid(), text: ''}))}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                 </svg>

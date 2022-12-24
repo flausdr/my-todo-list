@@ -11,29 +11,33 @@ export const crudSlice = createSlice({
     initialState: initialState,
     reducers: {
         addCard: (state, { payload }) => {
-            const newCardMap = new Map([...cardsMap.entries()])
+            const cloneMap = new Map([...cardsMap.entries()])
 
-            newCardMap.set(payload.id, [{id: 'randomSecond', text: payload.obj.text}])
+            cloneMap.set(payload.id, [{id: 'randomSecond', text: payload.obj.text}])
             cardsMap.set(payload.id, [{id: 'randomSecond', text: payload.obj.text}])
-            return [...newCardMap.entries()]
+            return [...cloneMap.entries()]
         },
         removeCard: (state, { payload }) => {
-            const newCardMap = new Map([...cardsMap.entries()])
+            const cloneMap = new Map([...cardsMap.entries()])
 
-            newCardMap.delete(payload)
+            cloneMap.delete(payload)
             cardsMap.delete(payload)
-            return [...newCardMap.entries()]
+            return [...cloneMap.entries()]
         },
-        addItemsForCard: (state, { payload }) => {
-            console.log(payload)
-            const newMap = cardsMap.get(payload.cardId),
-                valuesMap = [...newMap.values()]
+        addItemForCard: (state, { payload }) => {
+            const cloneMap = cardsMap.get(payload.cardId),
+                valuesMap = [...cloneMap.values()]
 
-            console.log(valuesMap)
             valuesMap.push({id: payload.id, text: ''})
-            console.log(valuesMap)
-
             cardsMap.set(payload.cardId, valuesMap)
+            return [...cardsMap.entries()]
+        },
+        removeItemCard: (state, { payload }) => {
+            const cloneMap = cardsMap.get(payload.cardId),
+                valuesMap = [...cloneMap.values()]
+
+            const newValuesMap = valuesMap.filter(item => item.id !== payload.itemId ? item : null)
+            cardsMap.set(payload.cardId, newValuesMap)
             return [...cardsMap.entries()]
         }
     }
@@ -41,6 +45,6 @@ export const crudSlice = createSlice({
 
 const { actions, reducer } = crudSlice;
 
-export const { addCard, removeCard, addItemsForCard } = actions;
+export const { addCard, removeCard, addItemForCard, removeItemCard } = actions;
 
 export default reducer;
