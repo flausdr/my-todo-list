@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { removeCard, addItemForCard } from '../cardSlice/cardSlice';
 import { nanoid } from '@reduxjs/toolkit';
+import { useEffect } from 'react';
+import Sortable from 'sortablejs';
 
 import Item from '../item/item';
 
@@ -11,7 +13,18 @@ const ListItem = ({ id }) => {
         dispatch = useDispatch(),
         cardsMap = new Map(cards),
         arrMap = cardsMap.get(id)
-        
+
+    useEffect(() => {
+        const el = document.querySelectorAll('.item__list')
+        el.forEach(e => {
+            new Sortable(e, {
+                group: 'shared',
+                animation: 150,
+                ghostClass: 'blue-background-class'
+            })
+        })
+    })
+
     return (
         <li className='item' data-id={id}>
             <input type="text" placeholder='Title..' className='item__title' />
