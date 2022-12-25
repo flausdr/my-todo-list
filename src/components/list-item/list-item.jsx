@@ -7,11 +7,11 @@ import Item from '../item/item';
 import './list-item.scss';
 
 const ListItem = ({ id }) => {
-    const cards = useSelector((state) => state.counter)
-    const dispatch = useDispatch();
-
-    const cardsMap = new Map(cards)
-    const arrMap = cardsMap.get(id)
+    const cards = useSelector((state) => state.counter),
+        dispatch = useDispatch(),
+        cardsMap = new Map(cards),
+        arrMap = cardsMap.get(id)
+        
     return (
         <li className='item' data-id={id}>
             <input type="text" placeholder='Title..' className='item__title' />

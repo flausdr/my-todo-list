@@ -2,21 +2,32 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { addCard } from '../cardSlice/cardSlice';
 import Item from '../list-item/list-item';
+import { useEffect } from 'react';
+import Sortable from 'sortablejs';
 
 import './desk.scss';
 
 const Desk = () => {
-    const cards = useSelector((state) => state.counter)
-    const dispatch = useDispatch()
-    const randomId = nanoid()
+    const cards = useSelector((state) => state.counter),
+        dispatch = useDispatch(),
+        randomId = nanoid()
 
+    useEffect(() => {
+        const el = document.getElementById('items')
+        new Sortable(el, {
+            animation: 150,
+            ghostClass: 'blue-background-class'
+        })
+    })
     return (
         <div className="desk">
-            {
-                cards.map(card => {
-                    return <Item id={card[0]} key={card[0]} />
-                })
-            }
+            <ul className='list-desk' id='items'>
+                {
+                    cards.map(card => {
+                        return <Item id={card[0]} key={card[0]} />
+                    })
+                }
+            </ul>
             <div className='add-item' onClick={() => dispatch(addCard({id: randomId, obj: {id: randomId, text: ''}}))} >
                 <span className="add-new-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

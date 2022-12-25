@@ -11,16 +11,18 @@
     border-radius: 5px;
     z-index: 2;
     overflow-y: scroll;
+    padding: 0 5px;
     align-items: flex-start;
 }
 
 .add-item{
     display: flex;
+    min-width: 200px;
     align-items: center;
     justify-content: space-around;
     width: auto;
     height: auto;
-    margin: 20px 0;
+    margin: 25px 20px;
     padding: 10px 50px;
     border: 1px dashed rgba($black, 0.42);
     border-radius: 5px;
@@ -48,4 +50,9 @@
     font-weight:300;
     cursor: pointer;
     margin-left: 15px;
+}
+
+.list-desk{
+    display: flex;
+    padding-left: 0;
 }
