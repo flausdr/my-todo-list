@@ -8,7 +8,7 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     z-index: 2;
     overflow-y: scroll;
     padding: 0 5px;
@@ -55,4 +55,31 @@
 .list-desk{
     display: flex;
     padding-left: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .desk{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .desk{
+        width: 96%;
+        height: 75%;
+        bottom: 10%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .desk{
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .desk{
+        width: 90%;
+    }
 }

@@ -72,12 +72,83 @@
         svg{
             width: 35px;
             height: 35px;
-            transition: 0.3s linear all;
+            transition: 0.3s linear al426l;
             fill: $item-blue;
             &:hover{
                 fill: $black;
                 transition: 0.3s linear all;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .header-navigation{
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .header{
+        &__logo{
+            font-size: 30px;
+        }
+        &__title{
+            font-size: 24px;
+        }
+        &__client{
+            margin-right: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .header-navigation{
+        flex-direction: row;
+        width: 300px;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header{
+        &__logo{
+            font-size: 24px;
+            padding-left: 10px;
+        }
+        &__title{
+            padding-top: 8px;
+            font-size: 18px;
+        }
+        &__client{
+            width: 40px;
+            height: 40px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .header{
+        &__logo{
+            flex-basis: 30%;
+        }
+        &__title{
+            font-size: 0;
+            flex-basis: 50%;
+        }
+    }
+
+    .header-navigation{
+        width: 150px;
+        transform: translate(-60%, -30%);
+        a > svg{
+            width: 25px;
+            height: 25px;
         }
     }
 }

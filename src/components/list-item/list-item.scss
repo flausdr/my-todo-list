@@ -101,3 +101,21 @@
     fill: transparent;
     transition: 0.3s linear all;
 }
+
+@media screen and (max-width: 560px) {
+    .item{
+        width: 200px;
+        margin: 5px 10px;
+        &__title{
+            font-size: 18px;
+        }
+        &__list{
+            li{
+                margin-top: 5px;
+            }
+            li > textarea{
+                font-size: 14px;
+            }
+        }
+    }
+}
